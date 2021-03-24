@@ -7,11 +7,13 @@ Plus d'info:
 
   Mask: C'est une méthode pour cacher des données
     C'est une simple opération au niveau binaire.
-    Voici comment cela fonctionne:
+    Voici comment cela fonctionne:  
+    
     1^1 = 0     (Le ^ est l'oppération XOR)
     0^1 = 1
     1^0 = 1
     0^0 = 0
+    
     Si deux bits ont la même valeur le résultat sera 0, si les deux bits ont une valeur différente le résultat sera 1.
     
     ex:
