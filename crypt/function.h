@@ -55,8 +55,8 @@ void decodeC(byte *_msg, byte _ckey[36]) {
   }
 }
 
-void encodeM(byte *_msg, byte _mkey[32]) {
-  byte _msg1[32];
+void encodeM(byte *_msg, byte _mkey[keylen]) {
+  byte _msg1[keylen];
   // Put the datas in a temporary variable
   for (byte i = 0; i < keylen; i++) {
     _msg1[i] = _msg[i];
@@ -68,14 +68,14 @@ void encodeM(byte *_msg, byte _mkey[32]) {
   }
 }
 void decodeM(byte *_msg, byte _mkey[keylen]) {
-  byte _msg1[32];
+  byte _msg1[keylen];
   // Put the datas in a temporary variable
-  for (byte i = 0; i < 32; i++) {
+  for (byte i = 0; i < keylen; i++) {
     _msg1[i] = _msg[i];
   }
   // Do the same thing in reverse
   // See above to compare
-  for (byte i = 0; i < 32; i++) {
+  for (byte i = 0; i < keylen; i++) {
     _msg[i] = _msg1[_mkey[i]];
   }
 }
@@ -86,7 +86,7 @@ void encodeB(byte *_msg) {
   for (byte i = 1; i < keylen; i++) {
     _msg[i] ^= _msg[i-1];
   }
-  _msg[0] ^= _msg[31];
+  _msg[0] ^= _msg[keylen-1];
 }
 void decodeB(byte *_msg) {
   // Do the same thing as above in reverse
